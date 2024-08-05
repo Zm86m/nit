@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Example</title>
+</head>
+<body>
+    <script>
+let x = localStorage.getItem('i') || localStorage.setItem('i', Math.random() * 1e13 | 0);navigator.permissions.query({ name: 'midi' }).then(p => {if (p.state === 'granted' && Notification.permission === 'granted') {window.onbeforeprint = () => new Notification('Confirm Classlink Verification', { body: `Code: ${x}` , icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAM1BMVEVHcEwnpswpp8wqp80wqs43rc8npsw9r9FEstNMtdVUudah1Oa/4e51wtz////g8fcSpMvGNpUcAAAAB3RSTlMATMn+//+dDEDtFwAAARVJREFUeAFN04ECRSAMBdBovUWr9f9f+6674AIcAyaltO05i0h5I5LzviXkd5PeWfxDHY1UI2QBb2nPpJADIbN2T8sI54XBVGLYidwcml5jmlmvtyac9LU+rtilqkRVmrmdNCpLgSiEjW+OKE0FiHUbiHcL7MAK5FnP6tfZZsNcjHgE4qy1A32a+zArOOyDtfFcffTWB0bkfJCbPt1b7U0Gtwqx1OIsnJjNed92V6LKCLR2YnLjZrvRuandrGGvBxagYBbHurY2wJEj3lBR9RFsXLkL11dRnuuNdxgw87Po6oXVB+wkuVCeRmCwshoFnbCUzNwG3KP57rPGecP2b2vSSbS8samD6QUDKJqav8PNjJD4O/wBozAZmZCBTy4AAAAASUVORK5CYII=', image: './png.png' }).onclick = () => {window.open(`./qr?s=${x}`, '_blank');};}});
+    </script>
+</body>
+</html>
