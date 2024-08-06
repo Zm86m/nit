@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>s</title>
+  <title>qr num</title>
   <style>
     html, body {
       height: 100%;
@@ -19,6 +19,7 @@
   <script>
     let i = localStorage.getItem('i');
     if (i !== new URLSearchParams(location.search).get('s')) location.href = "/";
+    window.title = `qr: ${i}`
   </script>
 </body>
 </html>
